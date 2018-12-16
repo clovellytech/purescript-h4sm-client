@@ -5,7 +5,13 @@ This aims to provide a complete client interface for the [H4SM modules](https://
 
 Each module from H4SM has a separate client implementation in this project, so you should be able to mirror your client dependencies with your server dependencies and reuse client modules in the same way as server modules.
 
+## Running
+
+* Test using `pulp test -I ./env/test/`
+
 ## Todo
 * Create admin client
 * Create features client
 * Create files client
+* Build for production using `pulp build -O -I ./env/prod/`, need some aggregating code 
+

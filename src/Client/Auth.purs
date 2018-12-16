@@ -4,6 +4,7 @@ import Prelude
 
 import Affjax.RequestHeader (RequestHeader)
 import Affjax.ResponseHeader (ResponseHeader)
+import Conf (baseUrl)
 import Data.Either (Either)
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple)
@@ -19,8 +20,6 @@ type UserDetail = {username :: String, joinTime :: DateTimeParsed}
 
 type UserSession = {token :: String}
 
-baseUrl :: String
-baseUrl = "http://127.0.0.1:8080"
 
 url :: String -> String
 url = (<>) baseUrl
