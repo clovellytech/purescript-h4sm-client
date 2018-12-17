@@ -2,7 +2,7 @@ module Test.Client.Auth where
   
 import Prelude
 
-import Client.Auth (UserRequest, deleteUser, getAuthedUser, isTest, loginUser, registerUser)
+import Client.Auth (UserRequest, deleteUser, getAuthedUser, isTest, loginUser, registerUser, userExists)
 import Client.Headers (convertHeadersFilter)
 import Data.Date (year, month)
 import Data.DateTime (date)
@@ -63,6 +63,32 @@ testGetAuthedUser = do
     Left (e) -> do
       logShow e
       liftEffect $ assert' "User data not read" false
-    
+
+testGetUserNotExists :: Aff Unit
+testGetUserNotExists = do 
+  r1 <- userExists user1.username
+  case r1 of 
+    Right (exists) -> liftEffect $ assert' "Server says user exists when it shouldn't"  (not exists)
+    Left (e) -> do 
+      logShow e
+      liftEffect $ assert' "User exist response wrong" false
+
+testGetUserExists :: Aff Unit 
+testGetUserExists = do
+  _ <- registerUser user1
+  r2 <- userExists user1.username
+  _ <- deleteUser user1.username
+  case r2 of 
+    Right (exists) -> liftEffect $ assert' "Server says user doesn't exist when it should" exists
+    Left (e) -> do 
+      logShow e
+      liftEffect $ assert' "User exist response wrong" false
+
 tests :: List (Aff Unit)
-tests =  testIsTest : testRegister : testLogin : testGetAuthedUser : Nil
+tests = testIsTest : 
+  testRegister : 
+  testLogin : 
+  testGetAuthedUser : 
+  testGetUserNotExists : 
+  testGetUserExists : 
+  Nil

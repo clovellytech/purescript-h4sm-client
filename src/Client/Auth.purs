@@ -41,3 +41,6 @@ getAuthedUser headers = getR {headers: headers} $ url "/users/user"
 
 deleteUser :: String -> Aff (Either HTTPError Unit)
 deleteUser username = delete_ $ url "/users/" <> username
+
+userExists :: String -> Aff (Either AjaxError Boolean)
+userExists username = get $ url "/users/exists/" <> username
