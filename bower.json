@@ -5,7 +5,11 @@
     "node_modules",
     "bower_components",
     "output"
-  ],
+  ],  
+  "repository": {
+    "type":"git",
+    "url": "git://github.com/clovellytech/h4sm-client.git"
+  },
   "dependencies": {
     "purescript-prelude": "^4.1.0",
     "purescript-console": "^4.2.0",
