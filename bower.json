@@ -14,7 +14,7 @@
     "purescript-prelude": "^4.1.0",
     "purescript-console": "^4.2.0",
     "purescript-effect": "^2.0.0",
-    "purescript-simple-ajax": "https://github.com/zakpatterson/purescript-simple-ajax.git#556a736",
+    "purescript-simple-ajax": "^0.5.0",
     "purescript-strings": "^4.0.1",
     "purescript-arraybuffer": "^8.0.2",
     "purescript-datetime": "^4.1.0",
