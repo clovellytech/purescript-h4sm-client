@@ -1,5 +1,5 @@
 {
-  "name": "h4sm-client",
+  "name": "purescript-h4sm-client",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -8,7 +8,7 @@
   ],  
   "repository": {
     "type":"git",
-    "url": "git://github.com/clovellytech/h4sm-client.git"
+    "url": "git://github.com/clovellytech/purescript-h4sm-client.git"
   },
   "dependencies": {
     "purescript-prelude": "^4.1.0",
